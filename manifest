@@ -1,70 +1,42 @@
-#
-# Informations about the manifest of autoproj can be found here:
-# http://www.rock-robotics.org/documentation/autoproj/customization.html
-#
-
+# List of VCS information or subdirectories of autoproj/ in which to find
+# package set definitions.
 package_sets:
-   - github: rock-core/package_set
-   - github: rock-core/rock-package_set
-   - github: rock-tutorials/tutorials-package_set
-   - github: rock-simulation/simulation-package_set
-   # Uncomment to enable the Rock/ROS bridge
-   # You will also have to uncomment some lines in the layout below
-   # - gitorious: rock-ros/package_set
+    - github: rock-core/package_set
+    - github: rock-core/rock.build-tests-package_set
 
-# Layout. Note that the rock.base and orocos.toolchain sets are
-# imported by other rock sets.
 layout:
-   - rock.core
-   # Uncomment to enable the Rock/ROS bridge
-   # You will also have to uncomment some lines in the package_sets above
-   # - rock.ros
-   # Uncomment to checkout and build all tutorials  
-   # - rock.tutorials    
+    - base/cmake
+    - rock.build-tests
+# Examples from the Rock package set
+#   - github: rock-core/package_set
 
-# The layout section specifies what to build, and where to build it (as a
-# subdirectory of the root installation directory). In the example below, all
-# the packages of the rock.toolchain package set will be built, in the tools/
-# subdirectory: source in tools/typelib, tools/orocos/rtt, ... and installed
-# files in build/tools/typelib, build/tools/orocos/rtt, ...
+# The layout section specifies what to build. Can include both whole package sets or single packages.
 #
 # layout:
-#   - tools:
-#     - rock.toolchain
+# - rock.core
 #
-# Single packages can also be selected instead of whole package sets. The
-# package names are interpreted as a regular expression, so it is possible to
-# do:
-#
-# layout:
-#   - tools:
-#     - typelib
-#     - utilmm
-#     - orocos/
-#
-# The first two match the typelib and utilmm packages, while the second one
-# match all packages in which "orocos/" is found.
-#
-# Again, note that if a layout section is present, only the packages listed
-# there will be built.
 
 # Package exclusion: packages can be completely excluded from the build. This is
-# an alternative way than using the layout, mainly useful if you want to enable
-# all packages but a few ones. As with layout, the names are actually regular
-# expressions.
+# an alternative way than using the layout.
+#
+# Useful if you want to enable a whole package set except a few packages, or if
+# you want to exclude some package's optional dependencies.
 #
 # exclude_packages:
-#   - orocos/
+# - gui/.*
 
-# Ignoring packages: same principle than package exclusion, but this time the
-# packages are considered to be installed and up-to-date. This is useful if you
-# want to use an already installed software package.
+# Ignoring packages: assume that some packages are present on disk. Unlike
+# exclude_packages, autoproj will not generate an error if a non-excluded
+# package depends on an ignored one, but it will not include the package and its
+# dependencies in the build.
 #
-# For instance, let's assume the orocos/rtt is already installed on your
-# machine. You would then simply do:
+# For instance, if one assumes that the 'rtt' package is already available on
+# the machine *and* you're confident that picking it outside of the workspace
+# won't create problems, then simply do:
+#
+# Note that using this obviously hinders repeatability of the build
 #
 # ignored_packages:
-#   - rtt
+# - rtt
 #
-
 
