@@ -1,0 +1,6 @@
+<package>
+  <description brief="The tests themselves">
+  </description>
+  <depend package="utilrb" />
+  <depend package="minitest" />
+</package>
