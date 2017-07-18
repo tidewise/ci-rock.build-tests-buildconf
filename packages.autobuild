@@ -1,9 +1,12 @@
 ruby_package 'build_tests/test'
 
 cmake_package 'build_tests/cmake/plain_package'
+cmake_package 'build_tests/cmake/plain_cxx11_package'
 cmake_package 'build_tests/cmake/another_plain_package'
 cmake_package 'build_tests/cmake/rock_activate_cxx11'
 cmake_package 'build_tests/cmake/rock_library_add_public_dependencies'
 cmake_package 'build_tests/cmake/rock_library_deps_pkgconfig'
 cmake_package 'build_tests/cmake/rock_library_no_public_dependencies'
 cmake_package 'build_tests/cmake/var_ROCK_PUBLIC_CXX_STANDARD'
+
+orogen_package 'build_tests/orogen/cxx11_dependency'

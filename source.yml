@@ -5,3 +5,5 @@ version_control:
         github: rock-core/build_tests-test
     - build_tests/cmake/.*:
         github: rock-core/build_tests-cmake-$PACKAGE_BASENAME
+    - build_tests/orogen/.*:
+        github: rock-core/build_tests-orogen-$PACKAGE_BASENAME
