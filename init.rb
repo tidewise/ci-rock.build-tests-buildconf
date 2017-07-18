@@ -20,3 +20,8 @@ Autobuild::CMake.show_make_messages = true
 Autoproj.config.separate_prefixes = true
 Autobuild::CMake.delete_obsolete_files_in_prefix = Autoproj.config.separate_prefixes?
 
+# Force-unset the C++11 configuration option, it is assumed to be so in tests
+Autoproj.config.set 'cxx11', false, true
+
+# Force-unset OCL
+Autoproj.config.set 'USE_OCL', false, true
