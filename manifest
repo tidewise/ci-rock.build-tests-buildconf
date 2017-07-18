@@ -6,7 +6,11 @@ package_sets:
 
 layout:
     - base/cmake
+    - base/templates/cmake_lib
+    - base/scripts
     - rock.build-tests
+    - orogen
+
 # Examples from the Rock package set
 #   - github: rock-core/package_set
 
