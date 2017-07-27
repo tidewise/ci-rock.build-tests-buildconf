@@ -14,6 +14,16 @@ describe "CMake macros" do
     end
 
     describe 'rock_library' do
+        describe 'header-only libraries' do
+            it "installs the library's pkg-config file" do
+                assert Utilrb::PkgConfig.get('headers_only_library')
+            end
+
+            it "plays well with the C++ standard activation feature" do
+                assert Utilrb::PkgConfig.get('cxx11_headers_only_library').raw_cflags.include?('-std=c++11')
+            end
+        end
+
         describe "pkg-config dependencies" do
             describe "DEPS_PKGCONFIG" do
                 it "links to the dependent library" do
