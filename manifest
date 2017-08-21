@@ -11,6 +11,9 @@ layout:
     - rock.build-tests
     - orogen
 
+exclude_packages:
+    - gui/vizkit3d
+
 # Examples from the Rock package set
 #   - github: rock-core/package_set
 
