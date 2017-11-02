@@ -1,4 +1,6 @@
-ruby_package 'build_tests/test'
+ruby_package 'build_tests/test' do |pkg|
+    pkg.rake_clean_task = nil
+end
 
 cmake_package 'build_tests/cmake/plain_package'
 cmake_package 'build_tests/cmake/plain_cxx11_package'
