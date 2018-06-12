@@ -30,4 +30,5 @@ orogen_package "build_tests/orogen/default_extensions_enabled_twice" do |pkg|
     # generating default_extensions
     pkg.orogen_options << "--extensions=trigger_enabled_twice_bug"
 end
+orogen_package "build_tests/orogen/default_extensions_does_not_leak"
 
