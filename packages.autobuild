@@ -21,3 +21,14 @@ orogen_package 'build_tests/orogen/use_intermediate_type_on_interface'
 orogen_package 'build_tests/orogen/m_type_generation'
 orogen_package "build_tests/orogen/root_project"
 orogen_package "build_tests/orogen/subclass_task_from_other_project"
+orogen_package "build_tests/orogen/default_extensions" do |pkg|
+    pkg.orogen_options << "--extensions=trigger_enabled_twice_bug"
+end
+orogen_package "build_tests/orogen/default_extensions_enabled_twice" do |pkg|
+    # Needed to trigger the bug. Default extensions are global, so we need to
+    # include it in this run so that the extension is loaded twice when
+    # generating default_extensions
+    pkg.orogen_options << "--extensions=trigger_enabled_twice_bug"
+end
+orogen_package "build_tests/orogen/default_extensions_does_not_leak"
+
