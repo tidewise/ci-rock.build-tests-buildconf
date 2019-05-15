@@ -31,4 +31,5 @@ orogen_package "build_tests/orogen/default_extensions_enabled_twice" do |pkg|
     pkg.orogen_options << "--extensions=trigger_enabled_twice_bug"
 end
 orogen_package "build_tests/orogen/default_extensions_does_not_leak"
-
+orogen_package 'build_tests/orogen/typekit_idl_cross_dependency_regression_1'
+orogen_package 'build_tests/orogen/typekit_idl_cross_dependency_regression_2'
