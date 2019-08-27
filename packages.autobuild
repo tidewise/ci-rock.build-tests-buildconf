@@ -2,6 +2,13 @@ ruby_package 'build_tests/test' do |pkg|
     pkg.rake_clean_task = nil
 end
 
+import_package 'build_tests/autoproj/checkout_of_test_dependencies_make-dep'
+cmake_package 'build_tests/autoproj/checkout_of_test_dependencies_make'
+import_package 'build_tests/autoproj/checkout_of_test_dependencies_ruby-dep'
+ruby_package 'build_tests/autoproj/checkout_of_test_dependencies_ruby'
+remove_from_default 'build_tests/autoproj/checkout_of_test_dependencies_make-dep',
+                    'build_tests/autoproj/checkout_of_test_dependencies_ruby-dep'
+
 cmake_package 'build_tests/cmake/plain_package'
 cmake_package 'build_tests/cmake/plain_cxx11_package'
 cmake_package 'build_tests/cmake/another_plain_package'

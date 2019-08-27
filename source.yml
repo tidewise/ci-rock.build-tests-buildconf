@@ -3,6 +3,8 @@ name: rock.build-tests
 version_control:
     - build_tests/test:
         github: rock-core/build_tests-test
+    - build_tests/autoproj/.*:
+        github: rock-core/build_tests-autoproj-$PACKAGE_BASENAME
     - build_tests/cmake/.*:
         github: rock-core/build_tests-cmake-$PACKAGE_BASENAME
     - build_tests/orogen/.*:
