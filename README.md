@@ -5,3 +5,5 @@ rock.build-tests package
 set](https://github.com/rock-core/rock.build-tests-package_set). The result is
 then checked by running the test suite from `build_tests/test`, which verifies
 that everything behaved as expected.
+
+When bootstrapping, use the provided `seed-config.yml` file as seed.

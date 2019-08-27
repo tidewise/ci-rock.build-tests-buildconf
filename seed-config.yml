@@ -1,0 +1,5 @@
+autoproj_test_utility_default: true
+autoproj_test_utility:
+  base/types: false
+  orogen: false
+  rtt: false
