@@ -2,6 +2,13 @@ ruby_package 'build_tests/test' do |pkg|
     pkg.rake_clean_task = nil
 end
 
+import_package 'build_tests/autoproj/checkout_of_test_dependencies_make-dep'
+cmake_package 'build_tests/autoproj/checkout_of_test_dependencies_make'
+import_package 'build_tests/autoproj/checkout_of_test_dependencies_ruby-dep'
+ruby_package 'build_tests/autoproj/checkout_of_test_dependencies_ruby'
+remove_from_default 'build_tests/autoproj/checkout_of_test_dependencies_make-dep',
+                    'build_tests/autoproj/checkout_of_test_dependencies_ruby-dep'
+
 cmake_package 'build_tests/cmake/plain_package'
 cmake_package 'build_tests/cmake/plain_cxx11_package'
 cmake_package 'build_tests/cmake/another_plain_package'
@@ -20,18 +27,18 @@ orogen_package 'build_tests/orogen/ro_ptr'
 orogen_package 'build_tests/orogen/ro_ptr_import'
 orogen_package 'build_tests/orogen/use_intermediate_type_on_interface'
 orogen_package 'build_tests/orogen/m_type_generation'
-orogen_package "build_tests/orogen/root_project"
-orogen_package "build_tests/orogen/subclass_task_from_other_project"
-orogen_package "build_tests/orogen/typekit_generation_with_pending_types_containing_opaques"
-orogen_package "build_tests/orogen/default_extensions" do |pkg|
-    pkg.orogen_options << "--extensions=trigger_enabled_twice_bug"
+orogen_package 'build_tests/orogen/root_project'
+orogen_package 'build_tests/orogen/subclass_task_from_other_project'
+orogen_package 'build_tests/orogen/typekit_generation_with_pending_types_containing_opaques'
+orogen_package 'build_tests/orogen/default_extensions' do |pkg|
+    pkg.orogen_options << '--extensions=trigger_enabled_twice_bug'
 end
-orogen_package "build_tests/orogen/default_extensions_enabled_twice" do |pkg|
+orogen_package 'build_tests/orogen/default_extensions_enabled_twice' do |pkg|
     # Needed to trigger the bug. Default extensions are global, so we need to
     # include it in this run so that the extension is loaded twice when
     # generating default_extensions
-    pkg.orogen_options << "--extensions=trigger_enabled_twice_bug"
+    pkg.orogen_options << '--extensions=trigger_enabled_twice_bug'
 end
-orogen_package "build_tests/orogen/default_extensions_does_not_leak"
+orogen_package 'build_tests/orogen/default_extensions_does_not_leak'
 orogen_package 'build_tests/orogen/typekit_idl_cross_dependency_regression_1'
 orogen_package 'build_tests/orogen/typekit_idl_cross_dependency_regression_2'
