@@ -41,6 +41,10 @@ module Helpers
             flunk("#{library} (resolved as #{library}) does not seem to be linked to #{linked_to} (resolved as #{expected}). Found:\n  #{ldd_results.map { |a, b| "#{a} => #{b}" }.join("\n  ")}")
         end
     end
+
+    def package_source_dir(*package)
+        File.join(ENV['AUTOPROJ_CURRENT_ROOT'], *package)
+    end
 end
 
 Minitest::Test.include Helpers
