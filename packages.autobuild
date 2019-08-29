@@ -2,6 +2,9 @@ ruby_package 'build_tests/test' do |pkg|
     pkg.rake_clean_task = nil
 end
 
+cmake_package 'build_tests/rock.core/enable-tests'
+cmake_package 'build_tests/rock.core/tests-built-if-enabled'
+
 import_package 'build_tests/autoproj/checkout_of_test_dependencies_make-dep'
 cmake_package 'build_tests/autoproj/checkout_of_test_dependencies_make'
 import_package 'build_tests/autoproj/checkout_of_test_dependencies_ruby-dep'
