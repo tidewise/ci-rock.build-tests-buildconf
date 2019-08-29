@@ -3,3 +3,4 @@ autoproj_test_utility:
   base/types: false
   orogen: false
   rtt: false
+  build_tests/rock.core/tests-build-if-enabled: false
