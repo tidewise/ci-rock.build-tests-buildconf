@@ -5,6 +5,8 @@ version_control:
         github: rock-core/build_tests-test
     - build_tests/autoproj/.*:
         github: rock-core/build_tests-autoproj-$PACKAGE_BASENAME
+    - build_tests/rock.core/.*:
+        github: rock-core/build_tests-rock.core-$PACKAGE_BASENAME
     - build_tests/cmake/.*:
         github: rock-core/build_tests-cmake-$PACKAGE_BASENAME
     - build_tests/orogen/.*:
