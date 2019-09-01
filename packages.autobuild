@@ -1,6 +1,3 @@
-ruby_package 'build_tests/test' do |pkg|
-    pkg.rake_clean_task = nil
-end
 
 cmake_package 'build_tests/rock.core/enable-tests'
 cmake_package 'build_tests/rock.core/tests-built-if-enabled'
