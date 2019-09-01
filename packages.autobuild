@@ -1,0 +1,47 @@
+ruby_package 'build_tests/test' do |pkg|
+    pkg.rake_clean_task = nil
+end
+
+cmake_package 'build_tests/rock.core/enable-tests'
+cmake_package 'build_tests/rock.core/tests-built-if-enabled'
+
+import_package 'build_tests/autoproj/checkout_of_test_dependencies_make-dep'
+cmake_package 'build_tests/autoproj/checkout_of_test_dependencies_make'
+import_package 'build_tests/autoproj/checkout_of_test_dependencies_ruby-dep'
+ruby_package 'build_tests/autoproj/checkout_of_test_dependencies_ruby'
+remove_from_default 'build_tests/autoproj/checkout_of_test_dependencies_make-dep',
+                    'build_tests/autoproj/checkout_of_test_dependencies_ruby-dep'
+
+cmake_package 'build_tests/cmake/plain_package'
+cmake_package 'build_tests/cmake/plain_cxx11_package'
+cmake_package 'build_tests/cmake/another_plain_package'
+cmake_package 'build_tests/cmake/headers_only_library'
+cmake_package 'build_tests/cmake/cxx11_headers_only_library'
+cmake_package 'build_tests/cmake/rock_activate_cxx11'
+cmake_package 'build_tests/cmake/rock_library_add_public_dependencies'
+cmake_package 'build_tests/cmake/rock_library_deps_pkgconfig'
+cmake_package 'build_tests/cmake/rock_library_no_public_dependencies'
+cmake_package 'build_tests/cmake/rock_library_make_all_dependencies_public'
+cmake_package 'build_tests/cmake/rock_library_mode'
+cmake_package 'build_tests/cmake/var_ROCK_PUBLIC_CXX_STANDARD'
+
+orogen_package 'build_tests/orogen/cxx11_dependency'
+orogen_package 'build_tests/orogen/ro_ptr'
+orogen_package 'build_tests/orogen/ro_ptr_import'
+orogen_package 'build_tests/orogen/use_intermediate_type_on_interface'
+orogen_package 'build_tests/orogen/m_type_generation'
+orogen_package 'build_tests/orogen/root_project'
+orogen_package 'build_tests/orogen/subclass_task_from_other_project'
+orogen_package 'build_tests/orogen/typekit_generation_with_pending_types_containing_opaques'
+orogen_package 'build_tests/orogen/default_extensions' do |pkg|
+    pkg.orogen_options << '--extensions=trigger_enabled_twice_bug'
+end
+orogen_package 'build_tests/orogen/default_extensions_enabled_twice' do |pkg|
+    # Needed to trigger the bug. Default extensions are global, so we need to
+    # include it in this run so that the extension is loaded twice when
+    # generating default_extensions
+    pkg.orogen_options << '--extensions=trigger_enabled_twice_bug'
+end
+orogen_package 'build_tests/orogen/default_extensions_does_not_leak'
+orogen_package 'build_tests/orogen/typekit_idl_cross_dependency_regression_1'
+orogen_package 'build_tests/orogen/typekit_idl_cross_dependency_regression_2'
