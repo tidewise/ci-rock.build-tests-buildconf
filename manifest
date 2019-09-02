@@ -2,7 +2,7 @@
 # package set definitions.
 package_sets:
     - github: rock-core/package_set
-    - github: rock-core/rock.build-tests-package_set
+    - rock.build-tests
 
 layout:
     - base/cmake
