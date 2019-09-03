@@ -25,3 +25,6 @@ Autoproj.config.set 'cxx11', false, true
 
 # Force-unset OCL
 Autoproj.config.set 'USE_OCL', false, true
+
+Autoproj::PackageManagers::BundlerManager
+    .configure_build_for('gem_build_flags', '--with-toplevel-init=success')
