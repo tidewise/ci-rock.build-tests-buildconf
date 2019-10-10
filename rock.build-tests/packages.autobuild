@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Autoproj::PackageManagers::BundlerManager
-    .add_build_configuration_for('gem_build_flags', "--with-package_set-packages=success")
+    .add_build_configuration_for('gem_build_flags', '--with-package_set-packages=success')
 
 cmake_package 'build_tests/rock.core/enable-tests'
 cmake_package 'build_tests/rock.core/tests-built-if-enabled'
@@ -31,7 +33,8 @@ orogen_package 'build_tests/orogen/use_intermediate_type_on_interface'
 orogen_package 'build_tests/orogen/m_type_generation'
 orogen_package 'build_tests/orogen/root_project'
 orogen_package 'build_tests/orogen/subclass_task_from_other_project'
-orogen_package 'build_tests/orogen/typekit_generation_with_pending_types_containing_opaques'
+orogen_package 'build_tests/orogen/'\
+               'typekit_generation_with_pending_types_containing_opaques'
 orogen_package 'build_tests/orogen/default_extensions' do |pkg|
     pkg.orogen_options << '--extensions=trigger_enabled_twice_bug'
 end
