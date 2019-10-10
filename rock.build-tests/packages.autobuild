@@ -24,6 +24,7 @@ cmake_package 'build_tests/cmake/rock_library_deps_pkgconfig'
 cmake_package 'build_tests/cmake/rock_library_no_public_dependencies'
 cmake_package 'build_tests/cmake/rock_library_make_all_dependencies_public'
 cmake_package 'build_tests/cmake/rock_library_mode'
+cmake_package 'build_tests/cmake/rock_target_setup_supports_headers_in_build_dir'
 cmake_package 'build_tests/cmake/var_ROCK_PUBLIC_CXX_STANDARD'
 
 orogen_package 'build_tests/orogen/cxx11_dependency'
