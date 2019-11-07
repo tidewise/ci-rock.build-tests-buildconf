@@ -10,6 +10,7 @@ layout:
     - base/scripts
     - rock.build-tests
     - orogen
+    - tools/orocos.rb
 
 exclude_packages:
     - gui/vizkit3d
