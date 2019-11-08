@@ -48,3 +48,5 @@ end
 orogen_package 'build_tests/orogen/default_extensions_does_not_leak'
 orogen_package 'build_tests/orogen/typekit_idl_cross_dependency_regression_1'
 orogen_package 'build_tests/orogen/typekit_idl_cross_dependency_regression_2'
+cmake_package 'build_tests/orogen/global_initializer_dependency'
+orogen_package 'build_tests/orogen/global_initializer'
