@@ -24,6 +24,35 @@ describe "CMake macros" do
             end
         end
 
+        describe 'rock_library mode' do
+            it 'compiles a shared library by default and with SHARED' do
+                shared_path = resolve_library(
+                    'rock_library_default_mode',
+                    'librock_library_mode_SHARED.so'
+                )
+                # On Linux, the only difference between add_library(MODULE) and
+                # add_library(SHARED) is that the former has no soname. Check
+                # this way
+                assert_match(/SONAME/, `objdump -p "#{shared_path}" 2>&1`)
+            end
+            it "compiles a module with MODULE" do
+                path = resolve_library(
+                    'rock_library_default_mode',
+                    'librock_library_mode_MODULE.so'
+                )
+                # On Linux, the only difference between add_library(MODULE) and
+                # add_library(SHARED) is that the former has no soname. :;<up><down>cCheck
+                # this way
+                refute_match(/SONAME/, `objdump -p "#{path}" 2>&1`)
+            end
+            it "compiles a static library with STATIC" do
+                resolve_library(
+                    'rock_library_default_mode',
+                    'librock_library_mode_STATIC.a'
+                )
+            end
+        end
+
         describe "pkg-config dependencies" do
             describe "DEPS_PKGCONFIG" do
                 it "links to the dependent library" do
