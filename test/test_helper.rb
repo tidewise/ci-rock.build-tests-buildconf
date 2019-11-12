@@ -4,9 +4,8 @@ require "minitest/spec"
 require 'utilrb/pkgconfig'
 
 module Helpers
-    def resolve_library(package_name)
+    def resolve_library(package_name, expected_libname = "lib#{package_name}.so")
         pkg = Utilrb::PkgConfig.get(package_name)
-        expected_libname =  "lib#{package_name}.so"
         matching_dir = pkg.library_dirs.find do |path|
             File.file?(File.join(path, expected_libname))
         end
