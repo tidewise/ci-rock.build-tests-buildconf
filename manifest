@@ -2,6 +2,7 @@
 # package set definitions.
 package_sets:
     - github: rock-core/package_set
+    - github: rock-core/rock-package_set
     - rock.build-tests
 
 layout:
@@ -11,9 +12,12 @@ layout:
     - rock.build-tests
     - orogen
     - tools/orocos.rb
+    - gui/orogen/qt_base
 
 exclude_packages:
     - gui/vizkit3d
+    - qwt5
+    - gui/vizkit
 
 # Examples from the Rock package set
 #   - github: rock-core/package_set
