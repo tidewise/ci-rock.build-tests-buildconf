@@ -28,6 +28,11 @@ cmake_package 'build_tests/cmake/rock_target_setup_supports_headers_in_build_dir
 cmake_package 'build_tests/cmake/var_ROCK_PUBLIC_CXX_STANDARD'
 cmake_package 'build_tests/cmake/no_standard_layout_package'
 cmake_package 'build_tests/cmake/rock_ruby_test_writes_junit_report'
+cmake_package 'build_tests/cmake/rock_install_python_bindings' do |pkg|
+    bin,_,_ = Rock.activate_python_path(pkg)
+    pkg.define 'BINDINGS_PYTHON', bin
+    pkg.define 'PYTHON_EXECUTABLE', bin if bin
+end
 
 orogen_package 'build_tests/orogen/cxx11_dependency'
 orogen_package 'build_tests/orogen/ro_ptr'
