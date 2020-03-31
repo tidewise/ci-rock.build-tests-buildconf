@@ -44,6 +44,23 @@ module Helpers
     def package_source_dir(*package)
         File.join(ENV['AUTOPROJ_CURRENT_ROOT'], *package)
     end
+
+    def resolve_python_bindings(package_name, expected_libname_pattern = "#{package_name}*.so")
+        pkg = Utilrb::PkgConfig.get(package_name)
+        library = nil
+        pkg.library_dirs.each do |path|
+            path = File.join(path, "python*","site-packages",expected_libname_pattern)
+            files = Dir.glob(path)
+            if not files.empty?
+                library = files.first
+            end
+        end
+        if File.exist?(library)
+            library
+        else
+            raise ArgumentError, "could not find #{package_name}*.so in subfolders \n  #{pkg.library_dirs.join("\n  ")}"
+        end
+    end
 end
 
 Minitest::Test.include Helpers

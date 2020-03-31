@@ -101,6 +101,12 @@ describe "CMake macros" do
                     refute Utilrb::PkgConfig.get('var_ROCK_PUBLIC_CXX_STANDARD').raw_cflags.include?('-std=c++11')
                 end
             end
+
+            describe "rock_install_python_bindings" do
+                it "builds and installs python bindings" do
+                    resolve_python_bindings("rock_install_python_bindings")
+                end
+            end
         end
     end
 end
