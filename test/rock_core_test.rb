@@ -12,5 +12,17 @@ describe "rock.core package set configuration" do
         # workspace. Use the buildconf seed config.
         refute system("which", "rock-core-tests-built-if-enabled")
     end
+
+    it 'adds the minitest-junit dependency on CMake packages '\
+       'with Ruby bindings if the tests are enabled' do
+        output = `#{File.join(ENV['AUTOPROJ_CURRENT_ROOT'], '.autoproj', 'bin', 'autoproj')} show rock_ruby_test_writes_junit_report`
+        assert_match(/minitest-junit/, output)
+    end
+
+    it 'does not add the minitest-junit dependency on CMake packages '\
+       'with Ruby bindings if the tests are disabled' do
+        output = `#{File.join(ENV['AUTOPROJ_CURRENT_ROOT'], '.autoproj', 'bin', 'autoproj')} show does_not_add_minitest_junit_dependency_on_disabled_tests`
+        refute_match(/minitest-junit/, output)
+    end
 end
 

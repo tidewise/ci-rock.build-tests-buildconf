@@ -4,3 +4,4 @@ autoproj_test_utility:
   orogen: false
   rtt: false
   build_tests/rock.core/tests-build-if-enabled: false
+  build_tests/rock.core/does_not_add_minitest_junit_dependency_on_disabled_tests: false
