@@ -5,6 +5,7 @@ Autoproj::PackageManagers::BundlerManager
 
 cmake_package 'build_tests/rock.core/enable-tests'
 cmake_package 'build_tests/rock.core/tests-built-if-enabled'
+cmake_package 'build_tests/rock.core/does_not_add_minitest_junit_dependency_on_disabled_tests'
 
 import_package 'build_tests/autoproj/checkout_of_test_dependencies_make-dep'
 cmake_package 'build_tests/autoproj/checkout_of_test_dependencies_make'
