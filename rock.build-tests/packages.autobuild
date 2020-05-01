@@ -35,6 +35,7 @@ cmake_package 'build_tests/cmake/rock_install_python_bindings' do |pkg|
     pkg.define 'PYTHON_EXECUTABLE', bin if bin
 end
 
+orogen_package 'build_tests/orogen/leading_underscore'
 orogen_package 'build_tests/orogen/cxx11_dependency'
 orogen_package 'build_tests/orogen/ro_ptr'
 orogen_package 'build_tests/orogen/ro_ptr_import'
