@@ -34,6 +34,9 @@ cmake_package 'build_tests/cmake/rock_install_python_bindings' do |pkg|
     pkg.define 'BINDINGS_PYTHON', bin
     pkg.define 'PYTHON_EXECUTABLE', bin if bin
 end
+cmake_package 'build_tests/cmake/deps_target_dependency'
+cmake_package 'build_tests/cmake/deps_target'
+cmake_package 'build_tests/cmake/deps_target_use_pkgconfig'
 
 orogen_package 'build_tests/orogen/leading_underscore'
 orogen_package 'build_tests/orogen/cxx11_dependency'
