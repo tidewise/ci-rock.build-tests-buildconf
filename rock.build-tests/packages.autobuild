@@ -37,6 +37,7 @@ end
 cmake_package 'build_tests/cmake/deps_target_dependency'
 cmake_package 'build_tests/cmake/deps_target'
 cmake_package 'build_tests/cmake/deps_target_use_pkgconfig'
+cmake_package 'build_tests/cmake/find_gem'
 
 orogen_package 'build_tests/orogen/leading_underscore'
 orogen_package 'build_tests/orogen/cxx11_dependency'
