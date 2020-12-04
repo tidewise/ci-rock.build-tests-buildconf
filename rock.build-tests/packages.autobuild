@@ -35,6 +35,7 @@ cmake_package 'build_tests/cmake/rock_install_python_bindings' do |pkg|
     pkg.define 'PYTHON_EXECUTABLE', bin if bin
 end
 cmake_package 'build_tests/cmake/deps_target_dependency'
+cmake_package 'build_tests/cmake/deps_target_transitive_dependency'
 cmake_package 'build_tests/cmake/deps_target'
 cmake_package 'build_tests/cmake/deps_target_use_pkgconfig'
 cmake_package 'build_tests/cmake/find_gem'
