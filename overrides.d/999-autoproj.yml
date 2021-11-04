@@ -1,0 +1,3 @@
+---
+- base/cmake:
+    remote_branch: refs/pull/73/head
